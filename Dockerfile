@@ -5,6 +5,8 @@ FROM eclipse-temurin:21-jdk AS builder
 WORKDIR /app
 #copiar la aplicacion
 COPY . .
+# Conceder permisos al script mvnw
+RUN chmod +x mvnw
 #correr maven pero sin los test
 RUN ./mvnw clean package -DskipTests
 
